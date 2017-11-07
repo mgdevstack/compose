@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  consul:
+    image: consul
+    container_name: consul-server
+    environment:
+      - CONSUL_BIND_INTERFACE=eth0
+    volumes:
+      - consul-volume:/consul/data
+    networks:
+      - bridge
+
+networks:
+  bridge:
+    driver: bridge
+  hostnet:
+    external:
+      name: host
+  nonet:
+    external:
+      name: none
+
+volumes:
+  consul-volume:
