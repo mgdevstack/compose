@@ -13,6 +13,7 @@ services:
   
   proxy:
     image: traefik
+    container_name: proxy-traefik
     command: --web --docker --docker.domain=docker.localhost --logLevel=DEBUG
     networks:
       - bridge
